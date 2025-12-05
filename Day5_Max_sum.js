@@ -1,3 +1,6 @@
+// Max Sum of K Consecutive Elements (Fixed Size)
+// The sliding window technique is a powerful tool in JavaScript
+//  (and other languages) for efficiently solving subarray/substring problems. It allows you to process only the necessary part of the array/string, reducing time complexity from O(n²) to O(n).
 function maxSumK(arr, k) {
     if (arr.length < k) return null;
     
@@ -10,11 +13,9 @@ function maxSumK(arr, k) {
     maxSum = windowSum;
     
     for (let i = k; i < arr.length; i++) {
-        // Add new element, remove old element
         windowSum += arr[i] - arr[i - k];
         maxSum = Math.max(maxSum, windowSum);
     }
-    
     return maxSum;
 }
 
